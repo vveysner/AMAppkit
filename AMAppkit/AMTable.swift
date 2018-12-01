@@ -239,7 +239,9 @@ open class AMTable: StaticSetupObject {
     func setup() {
         table.delegate = self
         table.dataSource = self
-        table.tableFooterView = UIView()
+        if table.tableFooterView == nil {
+            table.tableFooterView = UIView()
+        }
         table.register(AMContainerTableCell.self, forCellReuseIdentifier: "AMContainerTableCell")
         noObjectsViewType = AMNoObjectsView.self
     }
